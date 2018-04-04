@@ -16,12 +16,10 @@ export itc_username="email@email.com" # The email you use to log into iTunes Con
 export bundle_id="com.best.app" # The bundle ID of the app you want these scripts to check
 ```
 
-### Install node modules
+### Install dependencies
 ```bash
-sudo gem install fastlane
-npm install @slack/client@3.16.0 --save
-npm install dirty --save
-npm install moment --save
+yarn install
+bundle install
 ```
 
 ### Store your iTunes Connect password
