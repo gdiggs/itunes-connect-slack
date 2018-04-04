@@ -4,6 +4,7 @@ function postToSlack(appInfo, submissionStartDate) {
     var WebClient = require('@slack/client').WebClient;
 	var client = new WebClient(process.env.BOT_API_TOKEN);
 
+  var channel = process.env.SLACK_CHANNEL || '#ios-app-updates'
 	var message = `The status of your app *${appInfo.name}* has been changed to *${appInfo.status}*`
 	var attachment = slackAttachment(appInfo, submissionStartDate)
 	var params = {
@@ -11,7 +12,7 @@ function postToSlack(appInfo, submissionStartDate) {
 		"as_user" : "true"
 	}
 
-	client.chat.postMessage('#ios-app-updates', message, params, function(err, res) {
+	client.chat.postMessage(channel, message, params, function(err, res) {
 	    if (err) {
 	        console.log('Error:', err);
 	    }
